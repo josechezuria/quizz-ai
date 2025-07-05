@@ -4,8 +4,28 @@
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
     "joi": "^17.13.3",
     "marked": "^15.0.12",
-    "pg": "^8.16.2"
-  }
+    "pg": "^8.16.3"
+  },
+  "name": "quizz-ai",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josechezuria/quizz-ai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josechezuria/quizz-ai/issues"
+  },
+  "homepage": "https://github.com/josechezuria/quizz-ai#readme",
+  "description": ""
 }

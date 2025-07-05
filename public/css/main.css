@@ -1,9 +1,4 @@
-@use "variables" as *;
-@use "breakpoints" as *;
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
-
-//index
-
 html,
 body {
   font-family: "Quicksand", sans-serif;
@@ -24,27 +19,28 @@ body {
 .welcome-h1 {
   font-size: 80px;
   font-weight: 800;
-  color: $color-h1;
+  color: #1E1E1E;
   margin: 20px;
-
-  @include respond(tablet) {
+}
+@media (min-width: 768px) {
+  .welcome-h1 {
     font-size: 128px;
   }
 }
 
 .welcome-a {
   font-size: 24px;
-  color: $color-h1;
+  color: #1E1E1E;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease;
-
-  &:hover {
-    color: $color-h1;
-    text-decoration: underline;
-  }
-
-  @include respond(tablet) {
+}
+.welcome-a:hover {
+  color: #1E1E1E;
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .welcome-a {
     font-size: 32px;
   }
 }
@@ -56,18 +52,17 @@ body {
 .container-arrow > img {
   margin-left: 0.7rem;
   margin-top: 5px;
-
-  @include respond(tablet) {
+}
+@media (min-width: 768px) {
+  .container-arrow > img {
     margin-top: 10px;
   }
 }
 
-//Cookies
-
 .cookies-card-container {
   width: 335px;
   height: 485px;
-  background-color: $color-background;
+  background-color: #F9FAFC;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -86,14 +81,14 @@ body {
 
 .cookies-card-container h1 {
   font-size: 24px;
-  color: $color-h1;
+  color: #1E1E1E;
   padding: 0 45px 0 45px;
   text-align: center;
 }
 
 .cookies-card-container p {
   font-size: 16px;
-  color: $color-small;
+  color: #999999;
   text-align: center;
   line-height: 28px;
 }
@@ -118,20 +113,18 @@ body {
   justify-content: center;
   gap: 5px;
   width: 140px;
-  background-color: $color-secondary;
+  background-color: #9B5DE5;
   border-style: none;
   border-radius: 30px;
-  color: $color-background;
+  color: #F9FAFC;
 }
 
 #denyCookies {
   width: 87px;
-  background-color: $color-background;
+  background-color: #F9FAFC;
   border-style: none;
   border-radius: 30px;
 }
-
-//quiz
 
 .quiz-timer-bar {
   position: relative;
@@ -142,16 +135,17 @@ body {
   border-radius: 16px;
   overflow: hidden;
   margin: 1.5rem auto;
-
-  @include respond(desktop) {
+}
+@media (min-width: 1024px) {
+  .quiz-timer-bar {
     max-width: 800px;
   }
 }
 
 .timer-progress {
-  background-color: $color-primary; // use your primary color
+  background-color: #4A6CF7;
   height: 100%;
-  width: 100%; // will shrink with JS
+  width: 100%;
   transition: width 1s linear;
 }
 
@@ -169,8 +163,9 @@ body {
 .question-title {
   text-align: center;
   padding: 0 30px 0 30px;
-
-  @include respond(desktop) {
+}
+@media (min-width: 1024px) {
+  .question-title {
     padding: 0 120px 0 120px;
   }
 }
@@ -182,7 +177,7 @@ body {
 .option-card {
   height: 81px;
   width: 337px;
-  background-color: $color-background;
+  background-color: #F9FAFC;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   display: flex;
@@ -193,30 +188,24 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   border-style: none;
-
-  &.correct {
-    background-color: #c3e2ff;
-
-    .option-letter {
-      color: $color-background;
-    }
-
-    .option-letter-box {
-      background-color: #80c0fe;
-    }
-  }
-
-  &.wrong {
-    background-color: #ffb0ba;
-
-    .option-letter {
-      color: $color-background;
-    }
-
-    .option-letter-box {
-      background-color: $color-error;
-    }
-  }
+}
+.option-card.correct {
+  background-color: #c3e2ff;
+}
+.option-card.correct .option-letter {
+  color: #F9FAFC;
+}
+.option-card.correct .option-letter-box {
+  background-color: #80c0fe;
+}
+.option-card.wrong {
+  background-color: #ffb0ba;
+}
+.option-card.wrong .option-letter {
+  color: #F9FAFC;
+}
+.option-card.wrong .option-letter-box {
+  background-color: #FF4D6D;
 }
 
 .option-content {
@@ -228,7 +217,7 @@ body {
 .option-letter-box {
   width: 30px;
   height: 30px;
-  background-color: $color-quizButtons;
+  background-color: #ECE0FC;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -236,22 +225,20 @@ body {
 }
 
 .option-letter {
-  color: $color-quizText;
+  color: #1338DE;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-
-  &.correct {
-    color: $color-background;
-  }
-
-  &.wrong {
-    color: $color-background;
-  }
+}
+.option-letter.correct {
+  color: #F9FAFC;
+}
+.option-letter.wrong {
+  color: #F9FAFC;
 }
 
 .option-text {
-  color: $color-h1;
+  color: #1E1E1E;
   font-size: 16px;
   margin: 0;
 }
@@ -259,14 +246,12 @@ body {
 .next-btn {
   width: 89px;
   height: 42px;
-  background-color: $color-quizButtons;
-  color: $color-quizText;
+  background-color: #ECE0FC;
+  color: #1338DE;
   font-size: 16px;
   border-style: none;
   border-radius: 5px;
 }
-
-//results
 
 @keyframes popInOut {
   0% {
@@ -281,7 +266,6 @@ body {
     transform: scale(1);
   }
 }
-
 .results-container {
   display: flex;
   flex-direction: column;
@@ -290,7 +274,7 @@ body {
   height: 100vh;
   text-align: center;
   padding: 1rem;
-  background-color: $color-background;
+  background-color: #F9FAFC;
 }
 
 .results-subtitle {
@@ -298,12 +282,14 @@ body {
   font-weight: 600;
   color: #000000;
   margin-bottom: 0.5rem;
-
-  @include respond(tablet) {
+}
+@media (min-width: 768px) {
+  .results-subtitle {
     font-size: 30px;
   }
-
-  @include respond(desktop) {
+}
+@media (min-width: 1024px) {
+  .results-subtitle {
     font-size: 40px;
   }
 }
@@ -314,12 +300,14 @@ body {
   color: #000000;
   margin: 1.5rem;
   animation: popInOut 0.6s ease-out forwards;
-
-  @include respond(tablet) {
+}
+@media (min-width: 768px) {
+  .results-score {
     font-size: 150px;
   }
-
-  @include respond(desktop) {
+}
+@media (min-width: 1024px) {
+  .results-score {
     font-size: 150px;
   }
 }
@@ -333,21 +321,23 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  .results-arrow {
-    width: 42px;
-    height: auto;
-  }
-
-  @include respond(tablet) {
+}
+.results-restart-link:hover {
+  text-decoration: underline;
+}
+.results-restart-link .results-arrow {
+  width: 42px;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .results-restart-link {
     font-size: 30px;
   }
-
-  @include respond(desktop) {
+}
+@media (min-width: 1024px) {
+  .results-restart-link {
     font-size: 40px;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
