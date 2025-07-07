@@ -4,8 +4,8 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import session from "express-session"; 
-
 import quizRoutes from "./routes/quizRoutes.js";
+
 
 // Setup paths
 const __filename = fileURLToPath(import.meta.url);
@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "keyboard cat",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -36,8 +36,10 @@ app.use(
   })
 );
 
-// 🧠 Now your routes will have access to `req.session`
+
 app.use("/", quizRoutes);
+
+app.use("/quiz", quizRoutes);
 
 // Fallback
 app.use((req, res) => {

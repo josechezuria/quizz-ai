@@ -1,5 +1,6 @@
 import db from './index.js';
 
+
 export async function getAllQuestionsWithOptions() {
 
   const result = await db.query(`
@@ -49,4 +50,32 @@ export async function saveSession(sessionId, sessionData, expirationDate) {
     `,
     [sessionId, sessionData, expirationDate]
   );
+}
+
+export async function saveAnswer(sessionId, questionId, selectedOption) {
+  await db.query(
+    `
+    INSERT INTO answers (session_id, question_id, selected_option)
+    VALUES ($1, $2, $3)
+    ON CONFLICT (session_id, question_id)
+    DO UPDATE SET selected_option = EXCLUDED.selected_option
+    `,
+    [sessionId, questionId, selectedOption]
+  );
+}
+
+
+export async function getSessionResults(sessionId) {
+  const result = await db.query(
+    `
+    SELECT a.selected_option, o.is_correct
+    FROM answers a
+    JOIN options o ON a.selected_option = o.id
+    WHERE a.session_id = $1
+    `,
+    [sessionId]
+  );
+
+  const correctCount = result.rows.filter(r => r.is_correct).length;
+  return { correct: correctCount, total: result.rows.length };
 }

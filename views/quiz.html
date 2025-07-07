@@ -5,48 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
     <link rel="stylesheet" href="/css/main.css" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+      defer>
+    </script>
+
+    <script src="/js/quiz.js"  defer></script>
   </head>
   <body>
     <div class="container-center quiz">
-
       <div class="quiz-timer-bar">
         <div class="timer-progress" id="timerProgress"></div>
         <span class="timer-text" id="timer">60</span>
       </div>
 
-      <h2 class="question-title">
-        Which of the following is the term for surgical complications resulting
-        from surgical sponges left inside the patient's body?
-      </h2>
-
-      <button class="option-card">
-        <div class="option-content">
-          <div class="option-letter-box">
-            <p class="option-letter">A</p>
-          </div>
-          <p class="option-text">Gauze grievance disorder</p>
-        </div>
-      </button>
-
-      <button class="option-card correct">
-        <div class="option-content">
-          <div class="option-letter-box">
-            <p class="option-letter">A</p>
-          </div>
-          <p class="option-text">Gauze grievance disorder</p>
-        </div>
-      </button>
-
-      <button class="option-card wrong">
-        <div class="option-content">
-          <div class="option-letter-box">
-            <p class="option-letter">A</p>
-          </div>
-          <p class="option-text">Gauze grievance disorder</p>
-        </div>
-      </button>
+      <div id="quizContent"></div>
 
       <button id="nextQuestion" class="next-btn">Next</button>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   </body>
 </html>
+
