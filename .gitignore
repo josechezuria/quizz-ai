@@ -1,5 +1,53 @@
-# .gitignore
+# Node.js
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
 .env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+*.csv
+*.out
+*.pid
+*.seed
+
+# PostgreSQL
+*.sql
+.pgdata/
+*.dump
+
+# System
 .DS_Store
-/public/css/    # if you're compiling Sass to here
+Thumbs.db
+
+# Sass
+.sass-cache/
+*.sass-cache
+.cache/
+
+# Compiled CSS (optional if you're committing the compiled files)
+public/css/
+
+# Vscode & IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS Files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Test & coverage
+coverage/
+*.lcov
+
+# Build files
+build/
+tmp/
+temp/
