@@ -46,6 +46,7 @@ app.use((req, res) => {
   res.status(404).send("404 - Page not found");
 });
 
-app.listen(PORT, () => {
-  console.log(`🧠 Quizz.AI running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🧠 Quizz.AI running at http://0.0.0.0:${PORT}`);
 });
+

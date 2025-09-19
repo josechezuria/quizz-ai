@@ -1,0 +1,36 @@
+services:
+  app-dev:
+    build:
+      context: .
+      target: dev
+    container_name: quizzai-dev
+    ports:
+      - "3000:3000"
+    env_file: .env
+    volumes:
+      - .:/usr/src/app:cached
+      - node_modules_dev:/usr/src/app/node_modules
+    networks:
+      - dbnet
+    restart: unless-stopped
+    profiles: ["dev"]
+
+  app:
+    build:
+      context: .
+      target: prod
+    container_name: quizzai
+    ports:
+      - "3000:3000"
+    env_file: .env
+    networks:
+      - dbnet
+    restart: unless-stopped
+    profiles: ["prod"]
+
+volumes:
+  node_modules_dev:
+
+networks:
+  dbnet:
+    external: true
